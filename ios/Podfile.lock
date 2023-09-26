@@ -493,9 +493,6 @@ PODS:
     - React-Core
   - RNFS (2.20.0):
     - React-Core
-  - RNScreens (3.25.0):
-    - React-Core
-    - React-RCTImage
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -568,7 +565,6 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - rn-fetch-blob (from `../node_modules/rn-fetch-blob`)
   - RNFS (from `../node_modules/react-native-fs`)
-  - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -674,8 +670,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/rn-fetch-blob"
   RNFS:
     :path: "../node_modules/react-native-fs"
-  RNScreens:
-    :path: "../node_modules/react-native-screens"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -734,7 +728,6 @@ SPEC CHECKSUMS:
   ReactCommon: 4b2bdcb50a3543e1c2b2849ad44533686610826d
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
   RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
-  RNScreens: 85d3880b52d34db7b8eeebe2f1a0e807c05e69fa
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 3efc43e0d48686ce2e8c60f99d4e6bd349aff981
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
