@@ -2,6 +2,7 @@
 import {
   Alert,
   Image,
+  Platform,
   SafeAreaView,
   Text,
   TouchableOpacity,
@@ -19,6 +20,17 @@ import {
 import { getLocalData } from "./shared/rnfs.common";
 import { convertCsvToJson } from "./shared/csvtojson.common";
 import { saveImage } from "./shared/galleryAccess.common";
+import {
+  RewardedAd,
+  BannerAd,
+  BannerAdSize,
+  RewardedAdEventType,
+} from "react-native-google-mobile-ads";
+
+const reward_UnitId =
+  Platform.OS === "ios"
+    ? "ca-app-pub-9711240182969577/8958353614"
+    : "ca-app-pub-7122371230490146/8716316086";
 
 const AppMain = () => {
   const [images, setImages] = useState<ImagesForm[] | []>([]);
@@ -72,11 +84,27 @@ const AppMain = () => {
 
   const _onItem = async (url: string) => {
     incre_Count();
+    showRewardAds();
     const res = await saveImage(url);
     if (res) {
       Alert.alert("save image success");
     }
   };
+
+  const showRewardAds = () => {
+    const rewarded = RewardedAd.createForAdRequest(reward_UnitId);
+    rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
+      rewarded.show();
+    });
+
+    rewarded.addAdEventListener(RewardedAdEventType.EARNED_REWARD, (reward) => {
+      console.log("User earned reward of ", reward);
+      // AsyncStorage.setItem(WebViewScene.dl_count_Key, '0');
+    });
+
+    rewarded.load();
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
