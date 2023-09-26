@@ -1,5 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import {
+  Alert,
   Image,
   SafeAreaView,
   Text,
@@ -72,6 +73,9 @@ const AppMain = () => {
   const _onItem = async (url: string) => {
     incre_Count();
     const res = await saveImage(url);
+    if (res) {
+      Alert.alert("save image success");
+    }
   };
   return (
     <SafeAreaView style={{ flex: 1 }}>
